@@ -9,7 +9,9 @@
                 "field_placeholder": "User name",
                 "field_type": "text",
                 "field_value": "",
-                "field_instruction": "Please Input your User Name."
+                "field_instruction": "Please Input your User Name.",
+                "field_validator": "regex",
+                "field_regex": "(?:[a-z]?){3}"
             },
             {
                 "field_id": "country_name",
@@ -29,6 +31,7 @@
                 "field_type": "text",
                 "field_value": "",
                 "field_instruction": "Please Input your Tax Identifier Number."
+
             }
         ]
     }
