@@ -4,6 +4,8 @@ import Element from './components/Element';
 import { FormContext } from './FormContext';
 
 function MainNoteForm() {
+    const baseUrl = 'http://localhost:8383/';
+
     const [elements, setElements] = useState(null);
     useEffect(() => {
         setElements(formJSON[0])
@@ -12,8 +14,7 @@ function MainNoteForm() {
     const { fields, pageTitle } = elements ?? {}
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert('An user name was submitted: ' + fields[0]['field_value']);
-        console.log(elements)
+        postInfo()
     }
 
     const handleChange = (id, event) => {
@@ -37,7 +38,31 @@ function MainNoteForm() {
             }
             setElements(newElements)
         });
-        console.log(elements)
+    }
+
+    async function postInfo() {
+
+        const res = await fetch(baseUrl,
+            {
+                method: 'POST',
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Access-Control-Allow-Origin": '*',
+                    "Access-Control-Allow-Headers": 'Content-Type',
+                    "Access-Control-Allow-Credentials": 'true'
+                },
+                body: JSON.stringify({
+                    username: fields[0]['field_value'],
+                    country: fields[1]['field_value'],
+                    taxIdentifier: fields[2]['field_value']
+                })
+            })
+            .then( response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return (

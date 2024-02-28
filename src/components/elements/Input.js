@@ -12,7 +12,7 @@ const Input = ({ input_id, input_label, input_placeholder, input_value, input_in
                    value={input_value}
                    onChange={event => handleChange(input_id, event)}
             />
-            <div id="emailHelp" className="form-text">{input_instruction}</div>
+            <div id="boxHelp" className="form-text">{input_instruction}</div>
         </div>
     )
 }
