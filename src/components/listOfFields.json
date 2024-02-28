@@ -1,0 +1,35 @@
+[
+    {
+        "pageTitle": "Validation Form",
+        "fields": [
+            {
+                "field_id": "user_name",
+                "field_labelName": "User Name",
+                "field_required": "yes",
+                "field_placeholder": "User name",
+                "field_type": "text",
+                "field_value": "",
+                "field_instruction": "Please Input your User Name."
+            },
+            {
+                "field_id": "country_name",
+                "field_labelName": "Country",
+                "field_required": "yes",
+                "field_placeholder": "Country name",
+                "field_type": "autocompletetext",
+                "field_value": "",
+                "field_instruction": "Please Input your Country Name.",
+                "field_autocomplete": "true"
+            },
+            {
+                "field_id": "tax_identifier",
+                "field_labelName": "Tax Identifier",
+                "field_required": "yes",
+                "field_placeholder": "Tax identifier",
+                "field_type": "text",
+                "field_value": "",
+                "field_instruction": "Please Input your Tax Identifier Number."
+            }
+        ]
+    }
+]
