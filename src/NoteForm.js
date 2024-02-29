@@ -29,7 +29,6 @@ function MainNoteForm() {
 
     const clearForm = () => {
         const newElements = {...elements}
-        console.log(newElements.fields)
         newElements.fields[0]['field_value'] = ""
         newElements.fields[1]['field_value'] = ""
         newElements.fields[2]['field_value'] = ""

@@ -7,6 +7,26 @@
     "regex": "^[0-9]{4,4}-[a-zA-Z]{3,3}-[0-9]{5,7}$",
     "description": "[4 digits]-[3 letters]-[5 or 7 digits]"
   },
+  "France": {
+    "regex": "^[0-9]{13}$",
+    "description": "[13 digits]"
+  },
+  "Italy": {
+    "regex": "^[0-9]{13}$",
+    "description": "[13 digits]"
+  },
+  "Japan": {
+    "regex": "^[0-9]{13}$",
+    "description": "[13 digits]"
+  },
+  "Denmark": {
+    "regex": "^[0-9]{12}$",
+    "description": "[12 digits]"
+  },
+  "Costa Rica": {
+    "regex": "^([0-9]{10}|[0-9]{12})$",
+    "description": "[10 or 12 digits]"
+  },
   "default": {
     "regex": "^[0-9]{10}$",
     "description": "[10 digits]"
