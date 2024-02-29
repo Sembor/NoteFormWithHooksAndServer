@@ -1,5 +1,4 @@
 import formJSON from './components/jsons/listOfFields.json';
-import countrylist from './components/jsons/listOfCountries.json'
 import countriesValidator from './components/jsons/listOfCountriesValidations.json'
 import { validateCountry } from './components/util/ValidateCountry'
 import {useState, useEffect} from 'react';
@@ -11,12 +10,10 @@ function MainNoteForm() {
 
     const [elements, setElements] = useState(null);
     const [country, setCountry] = useState('')
-    const [validCountry, setValidCountry] = useState('')
     let selCountry = ""
 
     useEffect(() => {
         setElements(formJSON[0])
-        setValidCountry(country)
 
     }, [country])
 
@@ -66,11 +63,9 @@ function MainNoteForm() {
                     field['field_errorVisible'] = true;
                     field['field_instruction'] = field_instruction;
                     isValid = false;
-                    setValidCountry("")
                 } else {
                     setCountry(field_value)
                     selCountry = field_value
-                    setValidCountry(field_value)
                     field['field_errorVisible'] = false;
                 }
             }
@@ -130,7 +125,7 @@ function MainNoteForm() {
 
     async function postInfo() {
 
-        const res = await fetch(baseUrl,
+        await fetch(baseUrl,
             {
                 method: 'POST',
                 headers: {
