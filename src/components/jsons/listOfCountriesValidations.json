@@ -1,7 +1,7 @@
 {
   "Canada": {
-    "regex": "^[0-9(A|B|D)(a|b|d)]{10}-[a-zA-Z]{2}$",
-    "description": "[10 symbols digits or letters A, B or D]-[2 letters]"
+    "regex": "^[0-9(A|B|D)(a|b|d)_@./#&+-]{10}-[a-zA-Z]{2}$",
+    "description": "[10 symbols, digits or letters A, B or D]-[2 letters]. Symbols allowed are: _ @ . # & + -"
   },
   "United States": {
     "regex": "^[0-9]{4,4}-[a-zA-Z]{3,3}-[0-9]{5,7}$",

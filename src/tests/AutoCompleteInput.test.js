@@ -1,7 +1,6 @@
 import React from "react";
 
 import {render, screen, within} from '@testing-library/react';
-import user from '@testing-library/user-event'
 
 import AutoCompleteInput from "../components/elements/AutoCompleteInput";
 import {FormContext} from "../FormContext";

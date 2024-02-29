@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import user from '@testing-library/user-event'
 
 import NoteForm from "../NoteForm";
@@ -36,33 +36,6 @@ describe("Home Page mount", () => {
         expect(buttons).toBeInTheDocument()
     })
 
-   /* it ("Submits the form", () => {
-        renderComponent()
-        const mock = jest.fn();
-
-        //screen.logTestingPlaygroundURL();
-
-
-        // Find Inputs
-        const [usernameInput, taxIdInput] = screen.getAllByRole('textbox');
-        const countryInput = screen.getByRole('combobox')
-
-        user.click(usernameInput);
-        user.keyboard('john')
-
-        user.click(countryInput)
-        user.keyboard('Italy')
-
-        user.click(taxIdInput);
-        user.keyboard('1234567905')
-
-        const button = screen.getByRole('button', { name: /submit/i })
-
-        // Simulate click
-        user.click(button)
-    })
-*/
-
     it('should check if user writes on the form', async () => {
         renderComponent()
 
@@ -86,4 +59,5 @@ describe("Home Page mount", () => {
         expect(taxIdInput).toHaveValue('1234567905')
         expect(countryInput).toHaveValue('Italy')
     })
+
 });
