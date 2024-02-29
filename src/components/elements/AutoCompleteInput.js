@@ -8,7 +8,7 @@ const AutoCompleteInput = ({ input_id, input_label, input_placeholder, input_val
     }
     return (
         <div className="mb-3">
-            <label className="form-label">{input_label}</label>
+            <label className="form-label"  data-testid="input_label">{input_label}</label>
             <input type="text"  className="form-control" id={input_id}
                    placeholder={input_placeholder ? input_placeholder : ''}
                    value={input_value}

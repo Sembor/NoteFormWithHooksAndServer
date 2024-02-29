@@ -1,12 +1,12 @@
 import formJSON from './components/jsons/listOfFields.json';
 import countriesValidator from './components/jsons/listOfCountriesValidations.json'
-import { validateCountry } from './components/util/ValidateCountry'
+import {validateCountry} from './components/util/ValidateCountry'
+import { postInfo } from './components/util/APICall'
 import {useState, useEffect} from 'react';
 import Element from './components/Element';
 import {FormContext} from './FormContext';
 
 function MainNoteForm() {
-    const baseUrl = 'http://localhost:8383/';
 
     const [elements, setElements] = useState(null);
     const [country, setCountry] = useState('')
@@ -19,11 +19,24 @@ function MainNoteForm() {
 
 
     const {fields, pageTitle} = elements ?? {}
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const isValid = validate();
         if (isValid) {
-            postInfo()
+            const data = {
+                username: fields[0]['field_value'],
+                country: fields[1]['field_value'],
+                taxIdentifier: fields[2]['field_value']
+            }
+
+            const response = await postInfo(data)
+
+            if (response === 'success') {
+                alert("Form Posted Succesfully")
+                clearForm()
+            } else if (response === 'error') {
+                alert("Form not posted")
+            }
         }
     }
 
@@ -73,11 +86,10 @@ function MainNoteForm() {
                 let countryRegex = ""
                 let countryRegexDescription = ""
                 if (validateCountry(selCountry)) {
-                    if(Object.hasOwn(countriesValidator, selCountry)) {
+                    if (Object.hasOwn(countriesValidator, selCountry)) {
                         countryRegex = new RegExp(countriesValidator[selCountry].regex)
                         countryRegexDescription = `For ${selCountry} format must be ${countriesValidator[selCountry].description}`
-                    }
-                    else {
+                    } else {
                         countryRegex = new RegExp(countriesValidator["default"].regex)
                         countryRegexDescription = `For ${selCountry} format must be ${countriesValidator["default"].description}`
                     }
@@ -108,8 +120,6 @@ function MainNoteForm() {
             if (id === field_id) {
                 switch (field_type) {
                     case 'text':
-                        field['field_value'] = event.target.value;
-                        break;
                     case 'autocompletetext':
                         field['field_value'] = event.target.value;
                         break;
@@ -120,36 +130,6 @@ function MainNoteForm() {
             }
             setElements(newElements)
         });
-    }
-
-    async function postInfo() {
-
-        await fetch(baseUrl,
-            {
-                method: 'POST',
-                headers: {
-                    "Content-Type": 'application/json',
-                    "Access-Control-Allow-Origin": '*',
-                    "Access-Control-Allow-Headers": 'Content-Type',
-                    "Access-Control-Allow-Credentials": 'true'
-                },
-                body: JSON.stringify({
-                    username: fields[0]['field_value'],
-                    country: fields[1]['field_value'],
-                    taxIdentifier: fields[2]['field_value']
-                })
-            })
-            .then(response => {
-                if (response.status === 200) {
-                    alert("Form Posted Succesfully")
-                    clearForm()
-                } else {
-                    alert("Error on comunication with server")
-                }
-            })
-            .catch(error => {
-                console.log(error)
-            })
     }
 
     return (
