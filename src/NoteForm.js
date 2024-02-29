@@ -1,6 +1,6 @@
 import formJSON from './components/jsons/listOfFields.json';
 import countriesValidator from './components/jsons/listOfCountriesValidations.json'
-import { validateCountry } from './components/util/ValidateCountry'
+import {validateCountry} from './components/util/ValidateCountry'
 import {useState, useEffect} from 'react';
 import Element from './components/Element';
 import {FormContext} from './FormContext';
@@ -73,11 +73,10 @@ function MainNoteForm() {
                 let countryRegex = ""
                 let countryRegexDescription = ""
                 if (validateCountry(selCountry)) {
-                    if(Object.hasOwn(countriesValidator, selCountry)) {
+                    if (Object.hasOwn(countriesValidator, selCountry)) {
                         countryRegex = new RegExp(countriesValidator[selCountry].regex)
                         countryRegexDescription = `For ${selCountry} format must be ${countriesValidator[selCountry].description}`
-                    }
-                    else {
+                    } else {
                         countryRegex = new RegExp(countriesValidator["default"].regex)
                         countryRegexDescription = `For ${selCountry} format must be ${countriesValidator["default"].description}`
                     }
@@ -108,8 +107,6 @@ function MainNoteForm() {
             if (id === field_id) {
                 switch (field_type) {
                     case 'text':
-                        field['field_value'] = event.target.value;
-                        break;
                     case 'autocompletetext':
                         field['field_value'] = event.target.value;
                         break;
