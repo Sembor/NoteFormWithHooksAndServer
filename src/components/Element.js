@@ -1,8 +1,8 @@
 import Input from './elements/Input';
 import AutoCompleteInput from "./elements/AutoCompleteInput";
-import countriesList from './listOfCountries.json'
+import countriesList from './jsons/listOfCountries.json'
 
-const Element = ({ field: { field_type, field_id, field_labelName, field_placeholder, field_value, field_options, field_instruction } }) => {
+const Element = ({ field: { field_type, field_id, field_labelName, field_placeholder, field_value, field_options, field_instruction,field_required, field_errorVisible } }) => {
 
     switch (field_type) {
         case 'text':
@@ -12,6 +12,8 @@ const Element = ({ field: { field_type, field_id, field_labelName, field_placeho
                 input_placeholder={field_placeholder}
                 input_value={field_value}
                 input_instruction={field_instruction}
+                input_required={field_required}
+                input_errorVisible={field_errorVisible}
             />)
         case 'autocompletetext':
             return (<AutoCompleteInput
@@ -21,6 +23,7 @@ const Element = ({ field: { field_type, field_id, field_labelName, field_placeho
                 input_value={field_value}
                 input_instruction={field_instruction}
                 input_list={countriesList}
+                input_errorVisible={field_errorVisible}
             />)
         default:
             return null;

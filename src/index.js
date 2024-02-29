@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import {NoteForm} from './components/Form';
 import reportWebVitals from './reportWebVitals';
 import MainNoteForm from './NoteForm'
 
