@@ -1,13 +1,20 @@
 # Getting Started with the Form APP
 
+## Build App
+
+First run the followin command in the `root` folder
+
+### `npm install`
+
 ## Launching Server.
 
 You need two terminals to run this project.
 One for the Server and one for the Client
 
 Go first to the `\server` folder and execute the 
-command:
+following commands:
 
+### `npm install`
 ### `npm run dev`
 
 This will run the server on the port 8383
