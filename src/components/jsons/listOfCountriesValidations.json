@@ -1,0 +1,14 @@
+{
+  "Canada": {
+    "regex": "^[0-9(A|B|D)(a|b|d)]{10}-[a-zA-Z]{2}$",
+    "description": "[10 symbols digits or letters A, B or D]-[2 letters]"
+  },
+  "United States": {
+    "regex": "^[0-9]{4,4}-[a-zA-Z]{3,3}-[0-9]{5,7}$",
+    "description": "[4 digits]-[3 letters]-[5 or 7 digits]"
+  },
+  "default": {
+    "regex": "^[0-9]{10}$",
+    "description": "[10 digits]"
+  }
+}

@@ -1,8 +1,11 @@
 import React, { useContext } from 'react'
 import { FormContext } from '../../FormContext';
 
-const AutoCompleteInput = ({ input_id, input_label, input_placeholder, input_value, input_instruction, input_list}) => {
+const AutoCompleteInput = ({ input_id, input_label, input_placeholder, input_value, input_instruction, input_list, input_errorVisible}) => {
     const { handleChange } = useContext(FormContext)
+    const styleVisible = {
+        "display": input_errorVisible ? 'block' : 'none'
+    }
     return (
         <div className="mb-3">
             <label className="form-label">{input_label}</label>
@@ -15,7 +18,11 @@ const AutoCompleteInput = ({ input_id, input_label, input_placeholder, input_val
             <datalist id="countryDataList">
                 {input_list.map((country, i) => <option key={i} value={country} /> ) }
             </datalist>
-            <div id="hint" className="form-text">{input_instruction}</div>
+            <div id="boxHelp"
+                 className={`form-text text-danger ${input_errorVisible ? 'visible' : 'invisible'}`}
+                 style={styleVisible}>
+                {input_instruction}
+            </div>
         </div>
     )
 }

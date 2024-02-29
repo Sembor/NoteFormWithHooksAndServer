@@ -9,9 +9,10 @@
                 "field_placeholder": "User name",
                 "field_type": "text",
                 "field_value": "",
-                "field_instruction": "Please Input your User Name.",
+                "field_instruction": "User Name Should Contain at least 3 characters.",
                 "field_validator": "regex",
-                "field_regex": "(?:[a-z]?){3}"
+                "field_regex": "[a-zA-Z0-9]{3,}$",
+                "field_errorVisible": false
             },
             {
                 "field_id": "country_name",
@@ -20,8 +21,10 @@
                 "field_placeholder": "Country name",
                 "field_type": "autocompletetext",
                 "field_value": "",
-                "field_instruction": "Please Input your Country Name.",
-                "field_autocomplete": "true"
+                "field_instruction": "Please select a correct Country Name",
+                "field_autocomplete": "true",
+                "field_errorVisible": false,
+                "field_validator": "list"
             },
             {
                 "field_id": "tax_identifier",
@@ -30,7 +33,9 @@
                 "field_placeholder": "Tax identifier",
                 "field_type": "text",
                 "field_value": "",
-                "field_instruction": "Please Input your Tax Identifier Number."
+                "field_instruction": "Please Input your Tax Identifier Number.",
+                "field_errorVisible": false,
+                "field_validator": "jsonRegex"
 
             }
         ]
